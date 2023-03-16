@@ -1,0 +1,17 @@
+ANSI_BLUE = u"\u001B[34m"
+
+print(ascii_blue,"                _")
+print("           .' . // '.")
+print("          '_ '_\/_'  `_")
+print("          .  . \\  .  .")
+print("         .==. ` \\' .'")
+print("  .\|   //  \\   \,")
+print("  \_'`._\\__//_.'`.;")
+print("    `.__      __,' \\")
+print("        |    |      \\")
+print("        |    |       `")
+print("        |    |")
+print("        |    |")
+print("        |____|")
+print("       =='  '==") 
+print(RESET_COLOR)
