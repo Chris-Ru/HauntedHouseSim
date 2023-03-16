@@ -37,9 +37,9 @@ def mainRoom():
   print("\033[30m 69. Transend mortality")
   printIntro() 
   for char in "\033[39m You look around and notice a giant gleaming father clock. It’s 2 AM. One hour away from the witching hour. 5 doors line the wall you're facing.\n": 
-      print(char, end='') 
-      sys.stdout.flush() 
-      time.sleep(0.01) 
+    print(char, end='') 
+    sys.stdout.flush() 
+    time.sleep(0.01) 
   time.sleep(3)
   for i in range(5):
     printClock() #prints the grandfather clock animation

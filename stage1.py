@@ -233,7 +233,6 @@ def room1():
           processChoice3(choice3)
       choiceCount += 1
       checkIfAlive()
-
    
     open("variables/done1.txt", "w").write("1")  
     import main2
