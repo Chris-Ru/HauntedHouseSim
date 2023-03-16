@@ -1,0 +1,94 @@
+#Here are all the imported modules used within the game
+import sys
+import time
+import math
+from functions import cls, addLives, writeFile, setLives, printDoorway, printSkull, printIntro, printClock, checkIfAlive, print69
+import os
+from stage1 import room1, room2, room3, room4, room5, room6, room69, roomFinal
+import main2
+
+#variables for checking if room has been completed
+RESET_COLOR = u"\u001B[0m\u001B[2D"
+cls()
+#first set all the room files to 0 and even set the lives to 10
+open("variables/lives.txt", "w").write("10")
+writeFile("variables/done1.txt", "0")
+writeFile("variables/done2.txt", "0")
+writeFile("variables/done3.txt","0")
+writeFile("variables/done4.txt","0")
+writeFile("variables/done5.txt","0")
+writeFile("variables/done69.txt","0")
+username = input("press enter to continue ")
+
+#Defined the main room where all the rooms are being presented through a menu. 
+def mainRoom():
+  cls()
+  for char in "\033[39m “You only have an hour…”\n\n\n\n\n": 
+      print(char, end='') 
+      sys.stdout.flush() 
+      time.sleep(0.15) 
+  #gives out the terminal introduction presents with the original scenario
+  for char in "You suddenly open your eyes and notice that you’ve awakened in a place other than your bed with no memories, only knowing that you have to escape within an hour..... \n": 
+      print(char, end='') 
+      sys.stdout.flush() 
+      time.sleep(0.01) 
+  
+  print("The room is dark and honestly somewhat spooky.")
+  print("\033[30m 69. Transend mortality")
+  printIntro() 
+  for char in "\033[39m You look around and notice a giant gleaming father clock. It’s 2 AM. One hour away from the witching hour. 5 doors line the wall you're facing.\n": 
+      print(char, end='') 
+      sys.stdout.flush() 
+      time.sleep(0.01) 
+  time.sleep(3)
+  for i in range(5):
+    printClock() #prints the grandfather clock animation
+
+#if user types in 69 this just gives a list of all the ASCII art used within the escape room game
+if username == "69":
+  print69()
+  time.sleep(0.5)
+  print("Doorway")
+  printDoorway()
+  time.sleep(2)
+  print("Skull")
+  printSkull()
+  time.sleep(2)
+  print("Chair and Table")
+  printIntro()
+  time.sleep(2)
+  print("Grandfather Clock")
+  for i in range(5):
+    printClock()
+  time.sleep(2)
+  blah = input("press enter to continue ")
+  cls()
+  mainRoom()
+#here is where the menu function is defined and presents a list of all the rooms that the user can choose 
+mainRoom()
+def menu():
+  cls()
+  time.sleep(2)
+  print(RESET_COLOR)
+  print("\n1. Room 1\n2. Room 2\n3. Room 3\n4. Room 4\n5. Room 5\n6. Go back to sleep. It's probably just a dream anyways\n")
+
+
+
+ 
+#created a dictionary for all the rooms  
+stage1 = {
+  1: room1,
+  2: room2,
+  3: room3,
+  4: room4,
+  5: room5,
+  6: room6,
+  69: room69
+  
+}
+menu()
+choice = input("Choose an option. ")
+runChoice = stage1[int(choice)]
+runChoice()
+
+main2.main2()
