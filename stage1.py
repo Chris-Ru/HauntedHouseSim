@@ -253,7 +253,7 @@ def room2():
     main2.main2()
     
 
- else:
+  else:
     #code that executes when user passes all checks
     item = "nothing"
     #last function to run
