@@ -102,6 +102,7 @@ def room1():
 
   numberList = [1,2,2,2,3,3,3,3,3,3,3,3,3,3]
   randomEvent = random.choice(numberList)
+  print(RESET_COLOR)
   if randomEvent == 1:
     for char in "You enter the first room. \nIn the center of the room is a dusty coffin with the lid slowly sliding off.\nAs you approach, a thin boney hand bursts out of the coffin, groping for something to crush. \nYou jump back but you were too slow. \nThe hand grabs you and crushes you on the ground, instantly killing you.": 
       print(char, end='') 
@@ -111,24 +112,26 @@ def room1():
     print("Game over.")
     exit()
   if randomEvent == 2:
-      for char in "You enter the first room. In the center of the room is a dusty coffin with the lid slowly sliding off. \nAs you approach, a thin boney hand bursts out of the coffin, groping for something to crush. \nThinking fast, you sprint to the coffin and slam the lid on the skeleton, but also, unfortunately, on your other hand.":
-        print(char, end='') 
-        sys.stdout.flush() 
-        time.sleep(0.01)
-      time.sleep(2)
-      print("You lose 1 life") 
-      addLives(-1)
+    for char in "You enter the first room. In the center of the room is a dusty coffin with the lid slowly sliding off. \nAs you approach, a thin boney hand bursts out of the coffin, groping for something to crush. \nThinking fast, you sprint to the coffin and slam the lid on the skeleton, but also, unfortunately, on your other hand.":
+      print(char, end='') 
+      sys.stdout.flush() 
+      time.sleep(0.01)
+    time.sleep(2)
+    print("You lose 1 life") 
+    addLives(-1)
   if randomEvent == 3:
     for char in "You enter the first room. In the center of the room is a dusty coffin with the lid slowly sliding off. \nAs you approach, a thin boney hand bursts out of the coffin, groping for something to crush. \nThinking fast, you sprint to the coffin and slam the lid on teh skeleton. \nAfter the loud slam, there was a deafening silence. At least you didn't get hurt, yet.\n\n":
-        print(char, end='') 
-        sys.stdout.flush() 
-        time.sleep(0.01) 
+      print(char, end='') 
+      sys.stdout.flush() 
+      time.sleep(0.01) 
 
 
   def choicemenu1 (): 
     cls()
     time.sleep(0.7)
-    print("\n1. Go to the lamp next to the bed.\n2.Go to the couch.\n3. Go to the dresser\n")
+    print("\n1. Go to the lamp next to the bed.\n" +
+          "2. Go to the couch.\n" +
+          "3. Go to the dresser\n")
 
   def choicemenu2 (): 
     cls()
@@ -179,7 +182,7 @@ def room1():
         sys.stdout.flush()
         time.sleep(0.04)
     else:
-      for char in "Once you’ve reached the panel you begin to tug at it’s frame hoping for a way out. Once the frame is removed successfully, a bunch of bugs and insects begin to pour out of the panel spreading across the floor. These bugs began to eat your foot but you quickly shut the frame into the panel preventing anymore from entering. You quickly dispose the rest of the bugs and insects until you notice your foot is severely injured.\n You lost one life.":
+      for char in "Once you've reached the panel you begin to tug at it's frame hoping for a way out. Once the frame is removed successfully, a bunch of bugs and insects begin to pour out of the panel spreading across the floor. These bugs began to eat your foot but you quickly shut the frame into the panel preventing anymore from entering. You quickly dispose the rest of the bugs and insects until you notice your foot is severely injured.\n You lost one life.":
         print(char, end='')
         sys.stdout.flush()
         time.sleep(0.04)
@@ -204,20 +207,18 @@ def room1():
         time.sleep(0.04)
 
   
-  def handleStage1 ():
+  def handleStage1():
     cls()
     choiceCount = 1
     checkIfAlive()
 
-    while ( choiceCount <= 4) :    
+    while(choiceCount <= 4):  
       done1 = int(open("variables/done1.txt", "r").read())
       if done1 == 1:
         print("You've already been here. You fall through a portal, dropping you back to the main room.")
         exec(open("main2.py")).read()
         
       else:
-        
-        
         if ( choiceCount == 1 ):
           choicemenu1()
           choice1 = input("Choose a number: ")
@@ -242,18 +243,18 @@ def room1():
 #Room 2
 def room2():
 #Check if user passes necessary requirements: first time here, enough lives
- cls()
- checkIfAlive()
- done2 = int(open("variables/done2.txt", "r").read())
- if done2 == 1:
+  cls()
+  checkIfAlive()
+  done2 = int(open("variables/done2.txt", "r").read())
+  if done2 == 1:
     print("You've already been here. You shove the door but it doesn't budge.ANSI_BLUE")
     time.sleep(2)
     import main2
     main2.main2()
-  
+    
 
  else:
-   #code that executes when user passes all checks
+    #code that executes when user passes all checks
     item = "nothing"
     #last function to run
     def round3():
@@ -319,6 +320,7 @@ def room2():
         print("Invalid choice, you go through the door again")
         time.sleep(1)
         round2()
+
     #first called function
     def startMaze():
       cls()
@@ -338,24 +340,15 @@ def room2():
         print("Invalid option, you re-enter the room again")
     startMaze()
 
-
-
-
-
-
-
-  
-
- open("variables/done2.txt", "w").write("1")
- import main2
- main2.main2
+    open("variables/done2.txt", "w").write("1")
+    import main2
+    main2.main2
 
 
 
 
 def room3():
   cls()
-
   done3 = int(open("variables/done3.txt", "r").read())
   if done3 == 1:
     print("You've already been here. You kick ")
@@ -364,15 +357,7 @@ def room3():
     main2.main2()
 
   print("It's an empty room with nothing inside except for a lone button. You press the button and walk out of the room.")
-  time.sleep(4)
-
-
-
-
-
-
-
-  
+  time.sleep(4)  
   open("variables/done3.txt", "w").write("1")
   import main2
   main2.main2()
@@ -395,14 +380,12 @@ def room4():
 
   time.sleep(3)
   for char in "You lose 5 hearts\n\n": 
-        print(char, end='') 
-        sys.stdout.flush() 
-        time.sleep(0.25)
+    print(char, end='') 
+    sys.stdout.flush() 
+    time.sleep(0.25)
   addLives(-5)
   checkIfAlive()
   time.sleep(3)
-
-
 
   open("variables/done4.txt", "w").write("1")
   import main2
@@ -441,9 +424,9 @@ def room5():
 
 
 def choicemenu1 (): 
-   cls()
-   time.sleep(0.7)
-   print("\n1. bug.\n2.fish.\n3. I dont know")
+  cls()
+  time.sleep(0.7)
+  print("\n1. bug.\n2.fish.\n3. I dont know")
 
 
 def choicemenu2 (): 
@@ -452,9 +435,6 @@ def choicemenu2 ():
   print("\n1. the man is insulted and slaps you with his brother a young whale shark?")
   print("\n2. the man removes his cloak and reveals a fish head, then the user proceeds forward.") 
   print("\n3. Answer the question.")           
-
-
-
 
   open("variables/done5.txt", "w").write("1")
   import main2
@@ -489,9 +469,9 @@ def room69():
 
 
   for char in "You close your eyes and concentrate. When you open your eyes, everything is pure white. You have successfully transcended mortality.\n\n\n": 
-      print(char, end='') 
-      sys.stdout.flush() 
-      time.sleep(0.03)
+    print(char, end='') 
+    sys.stdout.flush() 
+    time.sleep(0.03)
   time.sleep(3) 
   addLives(2)
   checkIfAlive()
@@ -502,9 +482,9 @@ def room69():
 
 def roomFinal():
   for char in "You look into each room, satisfied that you've throroughly searched everything. The room still doesn't have an exit.\n\nYou decide to sit down on the chair that was next to you when you woke up. To your surprise, when you sit down in the chair you hear 5 clicks, one above each doorway. The room is silent until the entire wall opens up behind you.\n\n Astounded, you step out of the room, into your own bedroom. You look behind you, and the wall is once again solid, as if the room you just escaped didn't exist. ": 
-      print(char, end='') 
-      sys.stdout.flush() 
-      time.sleep(0.03) 
+    print(char, end='') 
+    sys.stdout.flush() 
+    time.sleep(0.03) 
   time.sleep(3)
   for char in "Credits: Kian, Komay, Megan, Ridhima, and Christopher":
     print(char, end='')
